@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Castlevania: Belmont's Curse — Guía completa</title>
+<meta name="description" content="Guía spoiler de Castlevania: Belmont's Curse en español: ruta por zonas con % de avance, jefes con nivel ATK/DEF sugerido, Arcanos del Tarot, 28 armas, 42 reliquias, áreas secretas por zona y los 3 finales.">
+<meta name="theme-color" content="#120609">
+<!-- Miniatura para WhatsApp / redes (ajusta la URL si cambias el nombre del repo) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Guías de hefestomar">
+<meta property="og:title" content="Castlevania: Belmont's Curse — Guía completa con spoilers">
+<meta property="og:description" content="Ruta por zonas con % de avance, 16 jefes con nivel sugerido, Arcanos, armas, reliquias, secretos por zona y los 3 finales.">
+<meta property="og:url" content="https://hefestomar.github.io/Castlevania-Belmonts-Curse/">
+<meta property="og:image" content="https://hefestomar.github.io/Castlevania-Belmonts-Curse/og-image.jpg?v=2">
+<meta property="og:image:secure_url" content="https://hefestomar.github.io/Castlevania-Belmonts-Curse/og-image.jpg?v=2">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Castlevania Belmont's Curse — Guía completa por @hefestomar, ilustración dorada del castillo">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Castlevania: Belmont's Curse — Guía completa con spoilers">
+<meta name="twitter:description" content="Ruta, jefes, Arcanos, armas, reliquias, secretos y finales.">
+<meta name="twitter:image" content="https://hefestomar.github.io/Castlevania-Belmonts-Curse/og-image.jpg?v=2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23120609'/%3E%3Ccircle cx='40' cy='22' r='12' fill='%23e8d6be'/%3E%3Cpath d='M10 60V34l6-8 6 8v-6l6-14 6 14v32z' fill='%23b4202c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6efe6; --bg2:#ece2d4; --card:#fffaf3; --ink:#24161a; --muted:#6c5a58;
+  --line:#d9c8b4; --blood:#a3192a; --gold:#9a6f22; --accent:#a3192a; --ok:#2f7a4a;
+  --chip:#f1e3cf; --shadow:0 1px 2px rgba(60,20,20,.08),0 6px 20px rgba(60,20,20,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#120609; --bg2:#1c0c11; --card:#1f1015; --ink:#efe3d4; --muted:#b39f93;
+    --line:#3c2229; --blood:#e0484f; --gold:#d6a85a; --accent:#e0484f; --ok:#5fbf7f;
+    --chip:#2c161c; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#120609; --bg2:#1c0c11; --card:#1f1015; --ink:#efe3d4; --muted:#b39f93;
+  --line:#3c2229; --blood:#e0484f; --gold:#d6a85a; --accent:#e0484f; --ok:#5fbf7f;
+  --chip:#2c161c; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Source Sans 3",system-ui,sans-serif}
+a{color:var(--accent)}
+h1,h2,h3{font-family:Cinzel,Georgia,serif;letter-spacing:.02em;line-height:1.2}
+h2{font-size:1.55rem;margin:0 0 .4rem;color:var(--blood)}
+h3{font-size:1.1rem;margin:1.4rem 0 .5rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.hero{background:radial-gradient(ellipse at 78% 20%,#7a1520 0,#3a0c14 35%,#120609 75%);color:#f3e7d6;padding:42px 0 30px;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.hero .moon{position:absolute;right:6%;top:24px;width:120px;height:120px;border-radius:50%;background:#e8d6be;box-shadow:0 0 80px 20px rgba(220,60,60,.35);opacity:.9}
+@media(max-width:600px){.hero .moon{width:70px;height:70px;right:-12px;top:70px;opacity:.55}}
+.hero .kicker{color:#e3b06a;font-weight:700;letter-spacing:.12em;font-size:.8rem;text-transform:uppercase}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);margin:.2rem 0 0;font-weight:800}
+.hero h1 span{display:block;font-size:.55em;color:#ff6b6b;font-weight:600}
+.hero p{max-width:640px;color:#e2d2c0}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:4px 10px;border-radius:999px;font-size:.85rem}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--bg2);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+nav.toc a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:600;font-size:.9rem;padding:6px 10px;border-radius:8px}
+nav.toc a:hover{background:var(--chip)}
+#themeBtn{margin-left:auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;font:inherit;font-size:.85rem}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+.lead{color:var(--muted);margin:.2rem 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.youare{border-left:5px solid var(--blood)}
+.youare strong{color:var(--blood)}
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem}
+.tbl th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--line);padding:8px 8px}
+.tbl td{border-bottom:1px solid var(--line);padding:8px;vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow)}
+.scroll .tbl{min-width:640px}
+#bossTbl{min-width:980px}#relTbl,#enemyTbl{min-width:760px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--chip);color:var(--ink);margin:1px 2px 1px 0}
+.tag.r{background:var(--blood);color:#fff}
+.tag.g{background:var(--gold);color:#1a0c06}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+.bar{height:10px;background:var(--chip);border-radius:999px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--blood))}
+details.step{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0;box-shadow:var(--shadow)}
+details.step summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;gap:12px;align-items:center}
+details.step summary::-webkit-details-marker{display:none}
+.stepn{flex:0 0 38px;height:38px;border-radius:10px;background:var(--blood);color:#fff;display:grid;place-items:center;font-family:Cinzel,serif;font-weight:800}
+.stepbody{padding:0 16px 14px 16px}
+.stepbody ol,.stepbody ul{padding-left:20px;margin:.3rem 0}
+.sumt{flex:1;min-width:0}
+.sumt b{display:block}
+.sumt small{color:var(--muted)}
+.pct{font-weight:800;color:var(--gold);white-space:nowrap}
+.chk{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+.chk input{margin-top:4px;accent-color:var(--blood);width:18px;height:18px}
+.note{font-size:.85rem;color:var(--muted)}
+.warn{background:var(--chip);border:1px dashed var(--blood);border-radius:12px;padding:10px 12px;font-size:.92rem}
+.filter{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.filter button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+.filter button.on{background:var(--blood);color:#fff;border-color:var(--blood)}
+.arc{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.tarot{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;position:relative;box-shadow:var(--shadow)}
+.tarot .rom{position:absolute;right:12px;top:10px;font-family:Cinzel,serif;color:var(--gold);font-weight:800}
+.tarot h4{margin:0 0 2px;font-family:Cinzel,serif}
+.tarot .sp{color:var(--blood);font-weight:700}
+.mapsvg{width:100%;height:auto;display:block}
+.mapsvg text{font-family:"Source Sans 3",sans-serif}
+a.card{text-decoration:none;color:var(--ink)}a.card b{color:var(--accent)}
+footer{padding:30px 0 50px;color:var(--muted);font-size:.9rem}
+.big{font-size:2rem;font-family:Cinzel,serif;font-weight:800;color:var(--blood)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:720px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.kpi small{display:block;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="kicker">Guía paso a paso · Contiene spoilers</div>
+    <h1>Castlevania<span>Belmont's Curse</span></h1>
+    <p>París, 1499. Rose Belmont, hija de Trevor y Sypha, contra la maldición de Drácula. Ruta completa por zonas con porcentaje de avance, jefes con nivel ATK/DEF sugerido, Arcanos del Tarot, armas, reliquias, áreas secretas y los tres finales.</p>
+    <div class="pills">
+      <span class="pill">PS5 · Xbox Series · PC · Switch</span>
+      <span class="pill">Lanzamiento: 15 oct 2026</span>
+      <span class="pill">20+ h · 100% ≈ 30 h</span>
+      <span class="pill">Konami · Evil Empire · Motion Twin</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#avance">Avance</a><a href="#ruta">Ruta</a><a href="#jefes">Jefes</a><a href="#enemigos">Enemigos</a>
+    <a href="#arcanos">Tarot</a><a href="#armas">Armas</a><a href="#reliquias">Reliquias</a><a href="#habilidades">Habilidades</a>
+    <a href="#secretos">Secretos</a><a href="#mapa">Mapa</a><a href="#finales">Finales</a><a href="#fuentes">Fuentes</a>
+    <button id="themeBtn" type="button" aria-label="Cambiar tema">◐ Tema</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ AVANCE ============ -->
+<section id="avance">
+  <h2>Tu avance</h2>
+  <p class="lead">Marca cada capítulo de la ruta al completarlo; el porcentaje se guarda en este navegador.</p>
+  <div class="grid g2">
+    <div class="card youare">
+      <h3 style="margin-top:0">📍 Dónde vas: nivel 10 entrando al cementerio</h3>
+      <p>Si vienes de la Demo y ya estás en <strong>nivel 10</strong> llegando al <strong>Cementerio de los Santos Inocentes</strong> (camino izquierdo del letrero del Distrito Quemado), vas en <strong>≈ 10–12 %</strong> del juego y <strong>bien encaminado</strong>:</p>
+      <ul>
+        <li>Tu siguiente jefe es <b>Medusa</b> (nivel sugerido 11–13). Junta en el camino el <b>ATK UP</b> de la Guarida de las Serpientes y la <b>Lanza</b> de la Fuente de los Inocentes.</li>
+        <li>Después sube a la <b>Torre Prisión</b> por <b>Juana de Arco</b> (12–14). Puedes hacerlas en cualquier orden.</li>
+        <li>Con las 3 llaves abres las <b>Catacumbas</b>: ahí sube el ritmo, conviene llegar en nivel 13–15.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="big"><span id="pctTotal">0</span>%</div>
+      <div class="bar"><i id="barTotal" style="width:0"></i></div>
+      <p class="note">Avance de historia según los capítulos marcados. El porcentaje real del juego (pestaña <b>Sistema</b>) cuenta sobre todo mapa revelado; abajo tienes cuánto pesa cada zona.</p>
+      <div id="zoneWeights"></div>
+    </div>
+  </div>
+  <div class="kpis" style="margin-top:14px">
+    <div class="kpi"><span class="big">16</span><small>Jefes</small></div>
+    <div class="kpi"><span class="big">16</span><small>Cartas del Tarot</small></div>
+    <div class="kpi"><span class="big">28</span><small>Armas (7 familias)</small></div>
+    <div class="kpi"><span class="big">42</span><small>Reliquias</small></div>
+    <div class="kpi"><span class="big">34</span><small>Espejos de Vida</small></div>
+    <div class="kpi"><span class="big">40</span><small>Pistas</small></div>
+    <div class="kpi"><span class="big">24 + 24</span><small>Fragmentos de Corazón</small></div>
+    <div class="kpi"><span class="big">14 + 14</span><small>Libros ATK UP / DEF UP</small></div>
+  </div>
+</section>
+
+<!-- ============ RUTA ============ -->
+<section id="ruta">
+  <h2>Ruta paso a paso</h2>
+  <p class="lead">Orden recomendado de la historia. El % indica el avance aproximado al terminar cada capítulo (historia + exploración normal).</p>
+  <div id="steps"></div>
+</section>
+
+<!-- ============ JEFES ============ -->
+<section id="jefes">
+  <h2>Jefes y mini jefes</h2>
+  <p class="lead">Nivel, ATK y DEF sugeridos para pasar cada pelea sin farmear de más. <b>ATK arma</b> = ataque base del arma (las familias tienen 4 niveles: 25 · 50 · 75 · 100). <b>Libros</b> = libros ATK UP / DEF UP acumulados (+1 cada uno).</p>
+  <div class="warn">⚠️ El juego salió hoy y ninguna fuente publica todavía niveles oficiales. Los niveles y libros son <b>estimaciones</b> a partir de la ruta, la experiencia por zona (estatuas de 100 XP en París → 400 XP en Aposentos del Amo) y tu referencia (nivel 10 al llegar al cementerio). Úsalos como guía, no como requisito.</div>
+  <h3>Jefes principales</h3>
+  <div class="scroll"><table class="tbl" id="bossTbl"></table></div>
+  <h3>Mini jefes y peleas de oleada</h3>
+  <div class="scroll"><table class="tbl" id="miniTbl"></table></div>
+  <p class="note">Tip: en <b>Sistema → Ajustes → Jugabilidad</b> activa “Reaparecer frente a puertas de jefe” para reintentar sin recorrer el camino. El Modo Personalizado no penaliza, pero bloquea algunos logros.</p>
+</section>
+
+<!-- ============ ENEMIGOS ============ -->
+<section id="enemigos">
+  <h2>Enemigos por zona</h2>
+  <p class="lead">Bestiario con su patrón de ataque y cómo defenderte. Peligro: ★ bajo · ★★ medio · ★★★ alto.</p>
+  <div class="filter" id="enemyFilter"></div>
+  <div class="scroll"><table class="tbl" id="enemyTbl"></table></div>
+  <p class="note">El juego no muestra cifras de HP/ATK de enemigos en pantalla; el peligro se basa en daño y patrón. Las zonas marcadas con * son las confirmadas por guías; el resto aparecen en varias zonas del castillo.</p>
+</section>
+
+<!-- ============ ARCANOS ============ -->
+<section id="arcanos">
+  <h2>Cartas del Tarot (Arcanos)</h2>
+  <p class="lead">16 cartas: empiezas con <b>La Maldita</b> y absorbes las otras 15 (13 de jefes y 2 de personajes). Solo se equipa <b>una</b> a la vez. Cada una tiene hasta 3 <b>Obras de Misericordia</b>; cada obra cumplida da una <b>Bendición</b> que desbloquea una mejora.</p>
+  <div class="arc" id="arcGrid"></div>
+  <h3>Resonancias arcanas (equipa la carta correcta)</h3>
+  <div class="scroll"><table class="tbl" id="resTbl"></table></div>
+</section>
+
+<!-- ============ ARMAS ============ -->
+<section id="armas">
+  <h2>Armas (28)</h2>
+  <p class="lead">7 familias × 4 armas. Cada familia escala 25 → 50 → 75 → 100 de ATK; las legendarias son 100. Las mejores suelen estar en cofres dorados al final de retos de plataformas.</p>
+  <div class="filter" id="weapFilter"></div>
+  <div class="scroll"><table class="tbl" id="weapTbl"></table></div>
+  <p class="note">ATK con “~” = nivel deducido por su familia, aún no confirmado en guías.</p>
+</section>
+
+<!-- ============ RELIQUIAS ============ -->
+<section id="reliquias">
+  <h2>Reliquias (42 + 3 Ojos)</h2>
+  <p class="lead">Equipas hasta 3 a la vez (Equipo → Reliquias). Los tres Ojos no dan bono: solo abren la puerta del Círculo de la Codicia.</p>
+  <div class="card" style="margin-bottom:12px"><b>Combo recomendado a tu nivel:</b> <span class="tag g">Nudo de Bruja</span> (pociones curan 100 %) en cuanto llegues al Salón Oeste del castillo; mientras tanto <span class="tag">Gema Crepuscular</span> (+30 % daño tras un hechizo) + <span class="tag">Sello Oscuro</span> (+80 % DEF con vida llena) + <span class="tag">Llave de Cripta</span> (abrir cofre cura todo).</div>
+  <div class="filter" id="relFilter"></div>
+  <div class="scroll"><table class="tbl" id="relTbl"></table></div>
+</section>
+
+<!-- ============ HABILIDADES ============ -->
+<section id="habilidades">
+  <h2>Habilidades y equipamiento de Rose</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0">Habilidades de movimiento (5)</h3>
+      <table class="tbl">
+        <tr><th>Habilidad</th><th>Cómo</th><th>Uso</th></tr>
+        <tr><td><b>Látigo Arcano</b></td><td>Tras vencer a The Fallen (Alcantarillas Abandonadas)</td><td>Engancharse a anclas luminosas, balancearse, revelar anclas ocultas</td></tr>
+        <tr><td><b>Luz Sagrada</b></td><td>Tras Juana de Arco (Escaleras al Techo de la Torre)</td><td>Disipa Fragmentos del Caos; <i>Desfile de Luz</i> = parada justo antes del golpe</td></tr>
+        <tr><td><b>Embestida Aérea</b></td><td>Tras Carmilla (Biblioteca)</td><td>Dash horizontal en el aire</td></tr>
+        <tr><td><b>Aplastar (Smash)</b></td><td>Tras Talos (Torre del Reloj)</td><td>Abajo + salto en el aire; rompe bloques y suelos (más alto = suelos más gruesos)</td></tr>
+        <tr><td><b>Doble Salto</b></td><td>Tras La Muerte, en el Coro de Notre-Dame (con Leon)</td><td>Salto extra en el aire</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Progresión del personaje</h3>
+      <ul>
+        <li><b>Nivel / XP:</b> enemigos y estatuas doradas de XP (147 en total: 100 XP en París, 150 Cementerio, 200 Catacumbas, 250 Salón Principal, 300 Notre-Dame/Biblioteca/Espejos, 350 Torre del Reloj, 400 Aposentos del Amo).</li>
+        <li><b>Vida máx.:</b> 4 Fragmentos de Corazón Valiente = +1 (6 mejoras, 3 fragmentos por zona principal).</li>
+        <li><b>Maná máx.:</b> 4 Fragmentos de Corazón Sabio = +1 (6 mejoras).</li>
+        <li><b>ATK/DEF:</b> libros ATK UP y DEF UP, +1 permanente (14 de cada uno).</li>
+        <li><b>Maná</b> se recupera golpeando enemigos con el arma; los hechizos lo gastan.</li>
+        <li><b>Pociones:</b> se rellenan en los Espejos de Vida (34). La carne entera cura toda la vida.</li>
+        <li><b>Farmeo rápido:</b> reliquia <b>Anillo Fantasma</b> (Torre del Reloj, Ascenso Oeste) + sala Cruce de Dédalo.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECRETOS ============ -->
+<section id="secretos">
+  <h2>Lugares ocultos por zona</h2>
+  <p class="lead">Áreas secretas: muro falso (lo atraviesas), muro agrietado (golpéalo), reja con palanca y suelo para Aplastar. La reliquia <b>Piedra Lúgubre</b> (Aposentos del Amo) avisa cuando hay uno cerca. Pon un <b>marcador</b> en el mapa (□ / Espacio) para volver después.</p>
+  <div class="scroll"><table class="tbl" id="secTbl"></table></div>
+  <h3>Detalle de secretos clave por zona</h3>
+  <div class="grid g2" id="secDetail"></div>
+</section>
+
+<!-- ============ MAPA ============ -->
+<section id="mapa">
+  <h2>Mapa</h2>
+  <p class="lead">Esquema de cómo se conectan las zonas y qué habilidad abre cada paso. Para el mapa completo con cada cofre y pin, usa los mapas interactivos de abajo.</p>
+  <div class="card scroll" style="padding:12px">
+    <svg class="mapsvg" style="min-width:760px" viewBox="0 0 900 520" role="img" aria-label="Esquema de conexiones entre zonas">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="currentColor"/></marker></defs>
+      <g style="color:var(--muted)" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#ar)">
+        <path d="M450 455 L450 395"/><path d="M395 430 L215 395"/><path d="M505 430 L690 395"/>
+        <path d="M540 370 L578 370"/><path d="M450 250 L450 205"/>
+        <path d="M390 180 L250 140"/><path d="M510 180 L650 140"/><path d="M450 155 L450 110"/>
+        <path d="M650 345 L650 300 L552 280"/>
+      </g>
+      <g font-size="14" text-anchor="middle">
+        <g><rect x="360" y="455" width="180" height="50" rx="10" fill="var(--blood)"/><text x="450" y="477" fill="#fff" font-weight="700">Calles de París</text><text x="450" y="495" fill="#fff" font-size="12">Inicio · The Fallen · Juana</text></g>
+        <g><rect x="110" y="345" width="190" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="205" y="367" fill="var(--ink)" font-weight="700">Cementerio Inocentes</text><text x="205" y="385" fill="var(--muted)" font-size="12">Medusa · Leonor</text></g>
+        <g><rect x="360" y="345" width="180" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="450" y="367" fill="var(--ink)" font-weight="700">Catacumbas</text><text x="450" y="385" fill="var(--muted)" font-size="12">3 llaves · Muerte · Mammon</text></g>
+        <g><rect x="580" y="345" width="200" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="680" y="367" fill="var(--ink)" font-weight="700">Distrito de Justicia</text><text x="680" y="385" fill="var(--muted)" font-size="12">Saint Louis · Isaac (ilusión)</text></g>
+        <g><rect x="350" y="250" width="200" height="50" rx="10" fill="var(--gold)"/><text x="450" y="272" fill="#1a0c06" font-weight="700">Salón Principal</text><text x="450" y="290" fill="#1a0c06" font-size="12">Castillo de Drácula · 9 espejos</text></g>
+        <g><rect x="150" y="105" width="200" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="250" y="127" fill="var(--ink)" font-weight="700">Biblioteca</text><text x="250" y="145" fill="var(--muted)" font-size="12">Carmilla · Embestida Aérea</text></g>
+        <g><rect x="350" y="155" width="200" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="450" y="177" fill="var(--ink)" font-weight="700">Salón de los Espejos</text><text x="450" y="195" fill="var(--muted)" font-size="12">Súcubo · cuadro → Notre-Dame</text></g>
+        <g><rect x="560" y="105" width="200" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="660" y="127" fill="var(--ink)" font-weight="700">Torre del Reloj</text><text x="660" y="145" fill="var(--muted)" font-size="12">Talos · Isaac · ¡trampa!</text></g>
+        <g><rect x="350" y="60" width="200" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="450" y="82" fill="var(--ink)" font-weight="700">Notre-Dame</text><text x="450" y="100" fill="var(--muted)" font-size="12">Muerte · Arturo · 4 Virtudes</text></g>
+        <g><rect x="620" y="10" width="220" height="50" rx="10" fill="var(--blood)"/><text x="730" y="32" fill="#fff" font-weight="700">Aposentos del Amo</text><text x="730" y="50" fill="#fff" font-size="12">Corte de la Noche · Drácula</text></g>
+      </g>
+      <g style="color:var(--muted)" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#ar)"><path d="M660 105 L700 62"/></g>
+      <g font-size="11" fill="var(--muted)">
+        <text x="260" y="425">Látigo Arcano</text><text x="458" y="425">3 llaves</text><text x="565" y="425">Barquero</text>
+        <text x="572" y="290">Puente de Notre-Dame</text><text x="458" y="232">Espejos</text>
+        <text x="262" y="175">Salón Oeste</text><text x="560" y="175">Puente al Reloj</text>
+        <text x="458" y="132">Arcano El Artista</text><text x="705" y="88">Cosecha de Almas</text>
+      </g>
+    </svg>
+  </div>
+  <div class="grid g3" style="margin-top:14px">
+    <a class="card" href="https://mapgenie.io/castlevania-belmonts-curse" target="_blank" rel="noopener"><b>Map Genie</b><br><span class="note">El mapa público que usas de referencia: todos los pines por zona.</span></a>
+    <a class="card" href="https://allthings.how/castlevania-belmonts-curse/map/" target="_blank" rel="noopener"><b>AllThings.How — mapa interactivo</b><br><span class="note">Reliquias, Arcanos, espejos y secretos por subárea.</span></a>
+    <a class="card" href="https://mapmaster.io/games/castlevania-belmont-s-curse/maps/paris-streets" target="_blank" rel="noopener"><b>Map Master — Calles de París</b><br><span class="note">181 pines solo en el primer capítulo.</span></a>
+  </div>
+  <p class="note">Pista del juego: dentro del castillo, los <b>retratos de Alucard</b> apuntan con la espada hacia donde debes ir.</p>
+</section>
+
+<!-- ============ FINALES ============ -->
+<section id="finales">
+  <h2>Los 3 finales</h2>
+  <div class="grid g3">
+    <div class="card"><span class="tag">Malo</span><h3 style="margin-top:.4rem">“Belmont's fall”</h3><p>Usar el reloj brillante del <b>Puente de la Torre del Reloj</b> sin <b>Cosecha de Almas</b> equipada. Es la trampa de la Muerte: una falsa victoria. Tras los créditos elige <b>Continuar</b> y sigues desde tu espejo.</p></div>
+    <div class="card"><span class="tag g">Normal</span><h3 style="margin-top:.4rem">“The hunt goes on”</h3><p>Vencer a las dos formas de <b>Drácula</b> (Corte de la Noche → Tejados del Castillo) <b>sin</b> Absolución equipada. Drácula cae, pero la maldición sigue. Puedes continuar tu partida.</p></div>
+    <div class="card"><span class="tag r">Verdadero</span><h3 style="margin-top:.4rem">“Curse lifted”</h3><p>Hacer sonar las <b>4 Campanas de la Virtud</b>, vencer a <b>Rose Sombra</b> (“???”), obtener <b>El Yo</b> y derrotar la 2.ª forma de Drácula con <b>Absolución</b> equipada.</p></div>
+  </div>
+  <h3>Las Cuatro Virtudes (Galería de las Cuatro Virtudes, Notre-Dame)</h3>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Virtud</th><th>Equipa</th><th>Requisito previo</th><th>Bendición de</th></tr>
+    <tr><td><b>Valor</b></td><td>Pira Infernal (El Guerrero)</td><td>Juana de Arco vencida</td><td>Juana de Arco — revancha</td></tr>
+    <tr><td><b>Templanza</b></td><td>Senda Helada (El Susurrante)</td><td>Óbolo de Mammon devuelto al Barquero</td><td>El Barquero</td></tr>
+    <tr><td><b>Justicia</b></td><td>Cadenas de Justicia (El Juez)</td><td>Balanza de la Justicia (Saint Louis)</td><td>Saint Louis</td></tr>
+    <tr><td><b>Prudencia</b></td><td>Paso Espejo (El Sabio)</td><td>Liberar a Leonor de Aquitania</td><td>Leonor</td></tr>
+  </table></div>
+  <ol>
+    <li>Equipa la carta y usa la ventana de la virtud; entra a la prueba y <b>golpea la campana</b> al final (verla no cuenta).</li>
+    <li>Con las 4 bendiciones, usa el altar central brillante de Notre-Dame → pelea contra <b>“???” (Rose Sombra)</b>. Ganas <b>El Yo / Absolución</b> y un aspecto nuevo.</li>
+    <li>Escena con el espíritu de Sypha. Vuelve a Drácula y equipa <b>Absolución</b> antes de rematar su forma alada en los Tejados.</li>
+  </ol>
+</section>
+
+<!-- ============ FUENTES ============ -->
+<section id="fuentes">
+  <h2>Fuentes</h2>
+  <p class="lead">Datos verificados el 15 de octubre de 2026, día del lanzamiento. Algunas guías siguen completándose.</p>
+  <ul>
+    <li><a href="https://mapgenie.io/castlevania-belmonts-curse" target="_blank" rel="noopener">Map Genie — Mapa interactivo</a></li>
+    <li><a href="https://www.keengamer.com/articles/guides/castlevania-belmonts-curse-complete-walkthrough/" target="_blank" rel="noopener">KeenGamer — Complete Walkthrough</a></li>
+    <li><a href="https://allthings.how/how-to-get-the-arcana-tarot-cards-in-castlevania-belmont-s-curse/" target="_blank" rel="noopener">AllThings.How — Arcanos del Tarot</a></li>
+    <li><a href="https://allthings.how/castlevania-belmont-s-curse-where-to-find-41-relics-and-what-they-do/" target="_blank" rel="noopener">AllThings.How — 42 reliquias</a></li>
+    <li><a href="https://allthings.how/castlevania-belmont-s-curse-achievements-and-trophies-list-all-29/" target="_blank" rel="noopener">AllThings.How — Logros y qué cuenta para el 100 %</a></li>
+    <li><a href="https://allthings.how/castlevania-belmont-s-curse-all-24-paris-streets-secret-areas-and-collectibles/" target="_blank" rel="noopener">AllThings.How — Secretos de París</a>, <a href="https://allthings.how/castlevania-belmont-s-curse-all-20-holy-innocents-cemetery-secret-areas/" target="_blank" rel="noopener">Cementerio</a>, <a href="https://allthings.how/catacombs-of-paris-in-castlevania-belmont-s-curse-all-43-secret-areas-and-collectibles/" target="_blank" rel="noopener">Catacumbas</a>, <a href="https://allthings.how/castlevania-belmont-s-curse-every-secret-area-and-collectible-in-the-main-hall/" target="_blank" rel="noopener">Salón Principal</a>, <a href="https://allthings.how/castlevania-belmont-s-curse-notre-dame-collectibles-and-all-31-secret-areas/" target="_blank" rel="noopener">Notre-Dame</a></li>
+    <li><a href="https://gmtreks.com/castlevania-belmonts-curse/page/01M44SG8TT4XMFVGCPBK941TD7" target="_blank" rel="noopener">GameTrek — Lista de 28 armas</a></li>
+    <li><a href="https://dq7reimagined.com/castlevania-belmonts-curse/endings/" target="_blank" rel="noopener">Player Atlas — Los 3 finales</a></li>
+    <li><a href="https://mapmaster.io/games/castlevania-belmont-s-curse" target="_blank" rel="noopener">Map Master — Hub de mapas</a></li>
+    <li><a href="https://www.3djuegos.com.mx/aventura-plataformas/castlevania-belmont-s-curse-tiene-platino-que-te-hara-sudar-sangre-guia-para-desbloquear-todos-logros-juego" target="_blank" rel="noopener">3DJuegos México — Guía de trofeos</a></li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Guía de fan sin afiliación con Konami. Castlevania es marca de Konami Digital Entertainment. · <a href="https://hefestomar.github.io">hefestomar.github.io</a></div>
+</footer>
+
+<script>
+/* ---------- Tema ---------- */
+(function(){
+  var root=document.documentElement,key="cbc-theme";
+  try{var s=localStorage.getItem(key);if(s)root.setAttribute("data-theme",s);}catch(e){}
+  document.getElementById("themeBtn").addEventListener("click",function(){
+    var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);
+    var n=dark?"light":"dark";root.setAttribute("data-theme",n);
+    try{localStorage.setItem(key,n);}catch(e){}
+  });
+})();
+
+function el(h){var t=document.createElement("template");t.innerHTML=h.trim();return t.content.firstChild;}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+/* ---------- Peso de zonas en el 100 % ---------- */
+var zones=[["Calles de París",319],["Salón Principal",267],["Torre del Reloj",236],["Notre-Dame",235],["Catacumbas",211],["Cementerio",176],["Salón de los Espejos",158],["Biblioteca",139],["Aposentos del Amo",24]];
+(function(){
+  var tot=zones.reduce(function(a,z){return a+z[1];},0),h="";
+  zones.forEach(function(z){var p=(z[1]/tot*100);h+='<div style="margin:6px 0"><div style="display:flex;justify-content:space-between;font-size:.88rem"><span>'+z[0]+'</span><span class="num">'+p.toFixed(1)+' %</span></div><div class="bar"><i style="width:'+(p/18.1*100)+'%"></i></div></div>';});
+  document.getElementById("zoneWeights").innerHTML=h;
+})();
+
+/* ---------- Ruta ---------- */
+var steps=[
+ {t:"Calles de París — The Fallen",z:"París (Demo)",p:8,lv:"1–7",b:[
+  "Del muelle del Sena ve a la derecha: tutorial de salto, ataque, curación y hechizos.",
+  "Cruza la Ciudad Baja hasta el Mercado en Ruinas. Habla con el espíritu de arriba: pista de la palanca junto a los barriles.",
+  "Baja a la plataforma de los barriles y rompe el muro agrietado; jala la palanca y bájate por el pozo al Drenaje Central (primer Espejo de Vida).",
+  "Depósito de Alcantarillas → Senda de la Rata (murciélagos y cultistas) → Puerta de las Catacumbas: jefe <b>The Fallen</b>.",
+  "Recompensas: carta <b>El Caído</b> (Cruz Sagrada), <b>Llave del Caído</b> y luego el <b>Látigo Arcano</b>.",
+  "Secreto: regresa al Depósito; desde la plataforma de rejilla frente a la escalera, lanza el Látigo Arcano hacia arriba → ancla oculta → <b>Cesto</b> (puños)."]},
+ {t:"Cementerio de los Santos Inocentes — Medusa",z:"Cementerio",p:16,lv:"10–13",b:[
+  "Del Distrito Quemado, en el letrero: <b>izquierda = Cementerio</b>, derecha = Torre Prisión. Vence al esqueleto gigante del puente.",
+  "Espejo en el Claustro → Sepulcro del Caballero → Fuente de los Inocentes (<b>Lanza</b> en cofre) → Osario → Fosa Común.",
+  "Acueducto y Baños Romanos (sierras y púas, palancas). El espíritu de las Aguas Termales avisa de la mirada petrificante.",
+  "Guarida de las Serpientes: <b>ATK UP</b> y Fragmento de Corazón Valiente. Activa el espejo y entra al Osario de los Inocentes: <b>Medusa</b>.",
+  "Recompensas: carta <b>La Profetisa</b> (Mirada Petrificante), <b>Llave de la Profetisa</b>; junto a la escalera de escombros, <b>Harpe Oxidada y Égida</b>.",
+  "Extras: <b>Ojo Tembloroso</b> en las Tumbas Saqueadas (para Mammon), <b>Almace y Hauteclaire</b> en la Cripta Inundada."]},
+ {t:"Torre Prisión — Juana de Arco",z:"París",p:22,lv:"12–14",b:[
+  "Por el Puente de los Molineros (manivela de la rueda) y el Tugurio del Vidente (reliquia <b>Llave de Cripta</b>).",
+  "Escala la torre con el Látigo Arcano y el elevador a la Torre Superior; rompe el muro de la derecha antes del techo.",
+  "Techo de la Torre: <b>Juana de Arco</b>. Recompensas: <b>El Guerrero</b> (Pira Infernal), <b>Llave del Guerrero</b>, <b>Espada Quemada de Fierbois</b>.",
+  "Bajando por las escaleras aprendes <b>Luz Sagrada</b>: disipa Fragmentos del Caos y permite parar golpes.",
+  "Vuelve a la Puerta de las Catacumbas y coloca las 3 llaves."]},
+ {t:"Catacumbas de París — Primer encuentro con la Muerte",z:"Catacumbas",p:32,lv:"13–16",b:[
+  "Rompe el suelo frágil de la entrada. Senda del Abismo (reliquia <b>Cuenta de Luto</b>) → Elevador de la Cantera (espejo).",
+  "Encrucijada de los Muertos: <b>Par de Espadas Largas</b>. Muro izquierdo → Galerías Osarias (pista de La Sombra).",
+  "Necrópolis De Rais, Fauces del Limbo, Reino de la Vieja Noche (espejo), Pozo Condenado, Escalera al Infierno.",
+  "Portal rojo y elevador hasta el altar: <b>la Muerte</b>. Es una pelea de historia: sobrevive y aguanta; no la vences aquí.",
+  "Sal por la Senda Colapsada de Orfeo: conoces al <b>Barquero</b> (viaje rápido entre muelles) y encuentras <b>Gungnir</b>."]},
+ {t:"Distrito de Justicia — hacia el castillo",z:"París",p:40,lv:"15–18",b:[
+  "Barquero → Calles de París. Alcantarillas del Distrito (<b>Espada Bastarda</b>) → Corte de Justicia → Palacio de Justicia.",
+  "Balanza junto al Árbol de la Justicia: Rose defiende la intención de Leon ante <b>Saint Louis</b> → carta <b>El Juez</b> (Cadenas de Justicia) y espada <b>Valmanway</b>.",
+  "Puerta del Puente de Piedra (espejo) → Puente de Notre-Dame con el látigo.",
+  "<b>Isaac</b> (1.ª vez): es una ilusión, no da carta. El puente se cae y Leon salva a Rose."]},
+ {t:"Castillo de Drácula — Salón Principal",z:"Salón Principal",p:50,lv:"18–20",b:[
+  "Patio Interior (<b>Lucero del Alba</b>) → Pasillo de Entrada (espejo) → Gran Salón (7 secretos).",
+  "Taller Abandonado (pista de El Constructor, reliquia Colgante Fantasmal), Tocadores, Obras Hidráulicas, Sótano Olvidado.",
+  "Salas de Espejos: la reina <b>Leonor</b> atrapada en un espejo encadenado. Vuelve más tarde.",
+  "Galería Vieja (<b>Nudillos Enjoyados</b> + ATK UP en muro falso), Torre de Alucard (<b>Espada y Escudo de Alucard</b>)."]},
+ {t:"Biblioteca — Carmilla",z:"Biblioteca",p:57,lv:"20–22",b:[
+  "Atelier de Brauner: golpea el engrane gigante → Salón Oeste (reliquia <b>Nudo de Bruja</b> tras reja con palanca) → Torre de Vigía (<b>Estoques</b>).",
+  "Puente exterior a la Biblioteca. Estantes de Retórica: estudio oculto con <b>Marca del Liche</b>.",
+  "Planetario: lee la Carta Estelar. En la Torre de Observación ajusta el astrolabio a la constelación.",
+  "Bajo la luna roja: <b>Carmilla</b> → <b>La Ocultista</b> (Púas de Sangre) y <b>Embestida Aérea</b>."]},
+ {t:"Torre del Reloj — Talos",z:"Torre del Reloj",p:64,lv:"22–25",b:[
+  "Ascenso del Mecánico (<b>Alabarda</b>), Pozo de Acceso Este (<b>Runa Siniestra</b>), Piñón Serpiente, Cruce de Dédalo (<b>Baratija Vil</b>, <b>Hueso Hueco</b>).",
+  "⚠️ <b>No uses el reloj brillante del Puente</b> todavía: lleva a la trampa de la Muerte (final malo).",
+  "Senda del Constructor (<b>Fragmento Lunar</b>) → Ápice de la Fundición → Trampa Final → horno: <b>Talos</b> (parte de la pelea es plataformeo contrarreloj).",
+  "Recompensas: <b>El Constructor</b> (Puño de Talos) y <b>Aplastar</b>. Rompe el suelo dorado → Oficina del Constructor: <b>Puños de Talos</b>.",
+  "Aquí está el <b>Anillo Fantasma</b> (Ascenso Oeste) para farmear XP."]},
+ {t:"Círculo de la Codicia — Mammon",z:"Catacumbas",p:70,lv:"24–27",b:[
+  "Reúne los 3 Ojos: <b>Emocionante</b> (Hospital, Calle de los Canteros), <b>Tembloroso</b> (Tumbas Saqueadas, Cementerio), <b>Supurante</b> (plataforma alta del Círculo).",
+  "Equipa los 3 como reliquias y toca la puerta de carne y ojos → Guarida de Mammon.",
+  "<b>Mammon</b>: usa los aros de arriba para esquivar los ataques de suelo. → <b>El Avaro</b> (Rueda del Caos).",
+  "Toma el <b>Óbolo del Barquero</b> del tesoro y llévaselo al Barquero → <b>El Susurrante</b> (Senda Helada)."]},
+ {t:"Salón de los Espejos — entrada a Notre-Dame",z:"Salón de los Espejos",p:76,lv:"25–28",b:[
+  "En el Atelier de Brauner engánchate sobre la escultura encadenada y usa <b>Aplastar</b> → Brauner te da <b>El Artista</b> (Obra Maestra).",
+  "Usa los santuarios de espejo (hub: Torre del Reflejo Mundano) hacia la Galería de la Noche Eterna.",
+  "Equipa El Artista frente al cuadro de Notre-Dame y entra."]},
+ {t:"Notre-Dame — la Muerte y el Vampire Killer",z:"Notre-Dame",p:84,lv:"27–30",b:[
+  "Nártex → Nave (reliquia Fragmento de Alma) → Transepto (tubos de órgano corruptos).",
+  "Órgano: 3 partituras. <b>Fuga</b> (espíritu bajo la escalera): Luna → Sol → Luna → Virgo. <b>Sonata</b> (Scriptorium Sellado): Sagitario → Capricornio → Piscis → Acuario → Capricornio → Sagitario → Capricornio. <b>Concierto</b> (cima de La Flèche): Géminis → Cáncer → Virgo → Leo → Virgo → Leo → Géminis.",
+  "Transepto: <b>la Muerte</b> (ahora sí). → <b>La Sombra</b> (Cosecha de Almas).",
+  "Cuartel del Diácono: Trevor te entrega el <b>Vampire Killer</b> (ATK 100). En el Coro, Leon te da el <b>Doble Salto</b>."]},
+ {t:"Corazón del Reloj — Isaac",z:"Torre del Reloj",p:88,lv:"30–32",b:[
+  "Equipa <b>Cosecha de Almas</b> y usa el reloj del Puente de la Torre del Reloj.",
+  "Atrio del Relojero (interruptores rojos), Puente de la Prisa, Cumbre Este, El Guantelete, Escalones del Tiempo.",
+  "<b>Isaac</b> (pelea real) → <b>El Fanático</b> (Zambullida Cronomántica) y la lanza legendaria <b>Chauve-Souris</b>."]},
+ {t:"Aposentos del Amo — Drácula (final normal)",z:"Aposentos del Amo",p:91,lv:"32–35",b:[
+  "Puente en ruinas → Santuario de la Soledad (espejo). En lo más alto, secreto con la reliquia <b>Piedra Lúgubre</b>.",
+  "Antecámara del Trono → <b>Corte de la Noche</b>: Drácula fase 1 (teletransporte, pilares de fuego).",
+  "Fase 2 en los Tejados: demonio alado (meteoros, zarpazos). Final normal si no tienes Absolución."]},
+ {t:"Opcionales — Leonor, Arturo y el Súcubo",z:"Varias",p:95,lv:"30–36",b:[
+  "<b>Leonor</b>: sigue “Leonor huye al cementerio” (Corazón del Laberinto) → Mausoleo de las Reinas → <b>El Sabio</b> (Paso Espejo).",
+  "<b>Arturo</b>: equipa Puño de Talos y presiona interactuar en la espada de la Capilla de Notre-Dame → <b>Excalibur</b> (ATK 100) + <b>El Rey Frágil</b>.",
+  "<b>Súcubo</b>: laberinto del Salón de los Espejos (arrodíllate en los santuarios), Campanario Recurrente, Descenso a la Memoria → Mansión Belmont → <b>La Tentadora</b> (Drenar Vida)."]},
+ {t:"Cuatro Virtudes, Rose Sombra y final verdadero",z:"Notre-Dame",p:100,lv:"35–40",b:[
+  "Galería de las Cuatro Virtudes: Valor, Templanza, Justicia y Prudencia (ver <a href='#finales'>Finales</a>).",
+  "Altar central → <b>“???” Rose Sombra</b> → <b>El Yo</b> (Absolución).",
+  "Vence de nuevo a Drácula con <b>Absolución equipada</b>: final verdadero “Curse lifted”."]}
+];
+var KEY="cbc-steps";
+function loadDone(){try{return JSON.parse(localStorage.getItem(KEY)||"[]");}catch(e){return[];}}
+function saveDone(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+(function(){
+  var box=document.getElementById("steps"),done=loadDone();
+  steps.forEach(function(s,i){
+    var d=el('<details class="step"'+(i===1?' open':'')+'><summary><span class="stepn">'+(i+1)+'</span><span class="sumt"><b>'+s.t+'</b><small>'+s.z+' · nivel sugerido '+s.lv+'</small></span><span class="pct">'+s.p+' %</span></summary><div class="stepbody"><ol>'+s.b.map(function(x){return"<li>"+x+"</li>";}).join("")+'</ol><label class="chk"><input type="checkbox" data-i="'+i+'"'+(done.indexOf(i)>-1?" checked":"")+'> <span>Capítulo completado</span></label></div></details>');
+    box.appendChild(d);
+  });
+  function upd(){
+    var dn=loadDone(),max=0;dn.forEach(function(i){if(steps[i]&&steps[i].p>max)max=steps[i].p;});
+    document.getElementById("pctTotal").textContent=max;document.getElementById("barTotal").style.width=max+"%";
+  }
+  box.addEventListener("change",function(e){
+    if(!e.target.matches("input[data-i]"))return;
+    var i=+e.target.dataset.i,dn=loadDone().filter(function(x){return x!==i;});
+    if(e.target.checked)dn.push(i);saveDone(dn);upd();
+  });
+  upd();
+})();
+
+/* ---------- Jefes ---------- */
+var bosses=[
+ ["The Fallen (Leon Belmont)","Calles de París · Puerta de las Catacumbas","5–7","25","0 / 0–1","Combo de 3 garras (espera el 3.º), cruz que regresa (rómpela a golpes), latigazo largo, caída en picada","El Caído · Llave · Látigo Arcano"],
+ ["Medusa","Cementerio · Osario de los Inocentes","11–13","25–50","2 / 2","Mirada petrificante (date la vuelta), proyectiles; plataformas sobre agua; no se le engancha el látigo","La Profetisa · Llave"],
+ ["Juana de Arco","Torre Prisión · Techo de la Torre","12–14","25–50","3 / 3","Combos de espada agresivos; esquiva y castiga al final de cada combo","El Guerrero · Llave · Fierbois · Luz Sagrada"],
+ ["La Muerte (1.ª)","Catacumbas · Altar de Huesos","13–16","50","3 / 4","Pelea de historia: sobrevive, no hace falta ganarla","Avanza la historia"],
+ ["Saint Louis (El Juez)","Palacio de Justicia","15–18","—","—","Prueba de la Balanza (diálogo), no combate","El Juez · Valmanway"],
+ ["Isaac (ilusión)","Puente de Notre-Dame","16–18","50","4 / 4","Combos a media distancia; usa hechizos cuando no sea seguro acercarte","Entrada al castillo"],
+ ["Carmilla","Biblioteca · Observatorio","20–22","50–75","5 / 5","Calaveras flotantes (rómpelas), columnas de sangre; marca de vampirismo que limita los golpes que aguantas","La Ocultista · Embestida Aérea"],
+ ["Talos","Torre del Reloj · Trono del Constructor","22–25","75","6 / 6","Gigante encadenado en el horno; fase de plataformeo contrarreloj","El Constructor · Aplastar · Puños de Talos"],
+ ["Mammon","Catacumbas · Guarida de Mammon","24–27","75","7 / 7","Ataques que recorren el suelo y rayos; usa los aros superiores","El Avaro · Óbolo"],
+ ["La Muerte (2.ª)","Notre-Dame · Transepto","27–30","75","9 / 9","Guadaña que corta la pantalla; balancéate por la catedral","La Sombra · Vampire Killer · Doble Salto"],
+ ["Isaac","Torre del Reloj · Corazón del Reloj","30–32","100","10 / 10","Más agresivo; guarda maná para las aperturas","El Fanático · Chauve-Souris"],
+ ["Súcubo (opcional)","Salón de los Espejos · Mansión Belmont","30–34","100","10 / 10","Ataques bajos y copias ilusorias: destrúyelas para romper su barrera","La Tentadora"],
+ ["Arturo, el Rey Frágil (opcional)","Notre-Dame · Capilla","32–35","100","12 / 11","Ondas de vidrio por el suelo (salta) y rayos de luz (quédate entre ellos)","El Rey Frágil · Excalibur"],
+ ["Drácula (2 formas)","Aposentos del Amo · Corte de la Noche → Tejados","32–36","100","12 / 12","F1: teletransporte y pilares de fuego. F2: demonio alado, meteoros y zarpazos","Final normal"],
+ ["Juana de Arco (Valor)","Notre-Dame · Galería de las Virtudes","34–37","100","13 / 13","Revancha más dura; misma lógica de castigar tras el combo","Bendición del Valor"],
+ ["“???” Rose Sombra","Notre-Dame · Galería de las Virtudes","35–38","100","14 / 14","Tu doble con tus propias técnicas","El Yo (Absolución) · aspecto"],
+];
+(function(){
+  var h='<tr><th>Jefe</th><th>Ubicación</th><th>Nivel</th><th>ATK arma</th><th>Libros ATK/DEF</th><th>Ataques / cómo pelear</th><th>Recompensa</th></tr>';
+  bosses.forEach(function(b){h+='<tr><td><b>'+b[0]+'</b></td><td>'+b[1]+'</td><td class="num">'+b[2]+'</td><td class="num">'+b[3]+'</td><td class="num">'+b[4]+'</td><td>'+b[5]+'</td><td>'+b[6]+'</td></tr>';});
+  document.getElementById("bossTbl").innerHTML=h;
+  var mini=[
+   ["Esqueleto Gigante","Puente al Cementerio (París)","Barre el puente con golpes lentos y pesados; castiga después de cada golpe"],
+   ["Arena de la Ciudad Baja","Calles de París","Oleadas; al final aparece un Fragmento de Corazón Valiente"],
+   ["Emboscada del Cesto","Depósito de Alcantarillas","Al abrir el cofre se sella la sala"],
+   ["Arena de la Fosa Común","Cementerio","Al limpiarla se abre el cuarto con la reliquia Pluma de Cuervo"],
+   ["Soldados rojos","Tumbas Saqueadas (Cementerio)","Oleada que custodia el Ojo Tembloroso y Belladona"],
+   ["Oleadas del Palacio de Justicia","Distrito de Justicia","Varias oleadas antes de la balanza"],
+   ["Bestia de fuego","Gabinete de Curiosidades (Biblioteca)","Custodia el Fragmento de Retornado"],
+   ["Dos caballeros con escudo","Capilla de la Paciencia (Notre-Dame)","Rompe la guardia (Colmillo de Obsidiana +45 % daño) — premio: Sello de Belcebú"],
+   ["Oleada de la Senda del Constructor","Torre del Reloj","Al ganar se abre el Fragmento Lunar"],
+  ];
+  var m='<tr><th>Mini jefe / oleada</th><th>Dónde</th><th>Notas</th></tr>';
+  mini.forEach(function(r){m+='<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';});
+  document.getElementById("miniTbl").innerHTML=m;
+})();
+
+/* ---------- Enemigos ---------- */
+var enemies=[
+ ["Murciélago","París*, Catacumbas","★","Vuelo en picada","Muy frágil; agrúpalos para la Obra de la Cruz Sagrada (5 con una cruz)"],
+ ["Cultista","Alcantarillas de París*","★","Golpes cuerpo a cuerpo y en grupo","Pocos golpes; recupera maná con ellos"],
+ ["Zombi","París, Cementerio","★","Avanza lento, emerge del suelo","Cualquier arma; no te dejes rodear"],
+ ["Fantasma / Ectoplasma","Cementerio*","★★","Atraviesa paredes, contacto","Ataques rápidos; Cruz Sagrada sirve a distancia"],
+ ["Esqueleto Soldado","Cementerio, Catacumbas","★","Espada y escudo","Rodéalo o rompe la guardia"],
+ ["Esqueleto Arquero","Cementerio, Catacumbas","★★","Flechas a distancia","Acércate entre disparos"],
+ ["Esqueleto Rojo","Catacumbas","★★","Se reensambla tras caer","Remátalo mientras está en el suelo"],
+ ["Skelerang","Catacumbas","★★","Bumeranes de hueso que regresan","Muévete en vertical; golpea el hueso"],
+ ["Pilar de Huesos","Catacumbas","★★","Escupe fuego en línea","Inmóvil: ataca desde arriba o abajo"],
+ ["Spittle Bone","Catacumbas","★","Camina por techos, escupe","Golpe hacia arriba"],
+ ["Esqueleto Gigante","Puente al Cementerio*","★★★","Golpes pesados de área","Mini jefe; castiga tras cada golpe"],
+ ["Cabeza de Medusa","Cementerio, Notre-Dame","★★","Vuelo ondulante, petrifica","Anticipa la onda; no saltes a su altura"],
+ ["Tritón (Merman)","Salón Principal*, Obras Hidráulicas","★★","Salta del agua, escupe fuego","Atácalo al aterrizar"],
+ ["Armadura del Hacha","Salón Principal","★★★","Lanza hachas en arco","Párrala con Luz Sagrada; ataca por detrás"],
+ ["Caballero","Salón Principal, Notre-Dame*","★★★","Escudo frontal, estocadas","Rompe guardia; Baratija Vil (+25 % por la espalda)"],
+ ["Espada Gobernante","Castillo","★★","Espada voladora que embiste","Esquiva la embestida y contraataca"],
+ ["Gárgola","Castillo, Notre-Dame","★★","Picada desde el aire","Embestida Aérea + combo"],
+ ["Arpía","Biblioteca, Notre-Dame","★★","Plumas desde arriba","Ataques aéreos (Pluma de Cuervo +25 %)"],
+ ["Ojo Mirón (Peeping Eye)","Biblioteca","★","Vigila y dispara rayos","Frágil, tiene patrón fijo"],
+ ["Malphas","Biblioteca, Torre del Reloj","★★","Cuervo gigante con plumas en abanico","Muévete en diagonal"],
+ ["Gólem","Torre del Reloj, Notre-Dame","★★★","Puñetazos lentos con onda","Mucho HP: Puño de Talos o arma pesada"],
+ ["Hombre Pulga","Torre del Reloj","★★","Saltos erráticos","Golpe cargado cuando aterriza"],
+ ["Lanzador (Throw Master)","Torre del Reloj","★★","Lanza objetos en arco","Acorta distancia"],
+ ["Minotauro","Castillo","★★★","Embestida y hachazo","Esquiva lateral, castiga la recuperación"],
+ ["Hombre Lobo","Castillo","★★★","Ataques rápidos y saltos","Para con Luz Sagrada (Moneda Maldita +30 % daño)"],
+ ["Erinia","Salón de los Espejos","★★★","Vuelo con fuego","Hechizos de control (Cadenas de Justicia)"],
+ ["Esqueleto Nova","Aposentos del Amo","★★★","Rayo explosivo","Rómpelo antes de que cargue"],
+ ["Sombra Helada","Salón de los Espejos","★★","Ataques de hielo, ralentiza","Pira Infernal"],
+ ["Yorick / Esqueleto Juguetón","Catacumbas","★","Patea su cráneo como proyectil","Destruye la cabeza"],
+ ["Biphron","Castillo","★★","Demonio con proyectiles","Esquiva y castiga"],
+ ["Ataúd","Catacumbas, Castillo","★★","Suelta enemigos","Destrúyelo primero"],
+];
+(function(){
+  var zf=["Todas","París","Cementerio","Catacumbas","Salón","Biblioteca","Reloj","Notre-Dame","Espejos"],f=document.getElementById("enemyFilter"),cur="Todas";
+  zf.forEach(function(z){var b=el('<button type="button"'+(z===cur?' class="on"':'')+'>'+z+'</button>');b.onclick=function(){cur=z;[].forEach.call(f.children,function(c){c.classList.toggle("on",c.textContent===z);});draw();};f.appendChild(b);});
+  function draw(){var h='<tr><th>Enemigo</th><th>Zona</th><th>Peligro</th><th>Ataque</th><th>Defensa / cómo vencerlo</th></tr>';
+    enemies.filter(function(e){return cur==="Todas"||e[1].indexOf(cur)>-1||(cur==="Salón"&&e[1].indexOf("Castillo")>-1);}).forEach(function(e){h+='<tr><td><b>'+e[0]+'</b></td><td>'+e[1]+'</td><td>'+e[2]+'</td><td>'+e[3]+'</td><td>'+e[4]+'</td></tr>';});
+    document.getElementById("enemyTbl").innerHTML=h;}
+  draw();
+})();
+
+/* ---------- Arcanos ---------- */
+var arcs=[
+ ["0","La Maldita (The Cursed)","Llama Maldita","30","Carta inicial (de Trevor)","Bola de fuego maldita. Se reemplaza por Absolución al conseguir El Yo."],
+ ["I","El Caído (The Fallen)","Cruz Sagrada","50","The Fallen · Puerta de las Catacumbas","Cruz que va y regresa. Habilidad: Látigo Arcano. Obras: 3 látigos distintos; 5 muertes con una misma cruz; 10 muertes con látigo."],
+ ["II","La Profetisa (The Prophetess)","Mirada Petrificante","75","Medusa · Osario de los Inocentes","Petrifica enemigos al frente."],
+ ["III","El Guerrero (The Warrior)","Pira Infernal","80","Juana de Arco · Techo de la Torre","Habilidad: Luz Sagrada. Abre la prueba del Valor."],
+ ["IV","El Juez (The Judge)","Cadenas de Justicia","40","Saint Louis · Palacio de Justicia","Encadena enemigos 4 s. Abre la prueba de la Justicia."],
+ ["V","La Ocultista (The Occultist)","Púas de Sangre","50","Carmilla · Observatorio","Tras vencerla: Embestida Aérea."],
+ ["VI","El Constructor (The Builder)","Puño de Talos","50","Talos · Torre del Reloj","Habilidad: Aplastar. Necesaria para sacar Excalibur."],
+ ["VII","El Artista (The Artist)","Obra Maestra","60","Brauner · Atelier de Brauner","Entrada a Notre-Dame por el cuadro. Obra: encontrar los 37 secretos del Salón Principal."],
+ ["VIII","El Avaro (The Miser)","Rueda del Caos","45","Mammon · Guarida de Mammon","Requiere los 3 Ojos equipados."],
+ ["IX","El Susurrante (The Whisperer)","Senda Helada","35","Barquero · devolver el Óbolo","Intangible 3 s, congela enemigos. Abre la Templanza."],
+ ["X","La Sombra (The Shadow)","Cosecha de Almas","60","La Muerte · Transepto de Notre-Dame","Guadaña lenta; evita la trampa del reloj. Habilidad: Doble Salto."],
+ ["XI","El Fanático (The Zealot)","Zambullida Cronomántica","50","Isaac · Corazón del Reloj","Cámara lenta. Obras: 20 muertes en cámara lenta; explorar toda la Torre del Reloj."],
+ ["XII","La Tentadora (The Temptress)","Drenar Vida","5","Súcubo · Mansión Belmont","Drena mientras lo mantienes. Obra: explorar todo el Salón de los Espejos."],
+ ["XIII","El Sabio (The Sage)","Paso Espejo","80","Leonor · Mausoleo de las Reinas","Espejo 15 s; al recastear te teletransporta y devuelve 50 % de la vida perdida. Obra: usar los 34 espejos. Abre la Prudencia."],
+ ["XIV","El Rey Frágil (The Brittle King)","Escudo de Vitral","100","Arturo · Capilla de Notre-Dame","Bloquea un ataque y lanza vidrios."],
+ ["XV","El Yo (The Self)","Absolución","50","“???” Rose Sombra · Galería de las Virtudes","Equípala para el final verdadero."],
+];
+(function(){
+  var g=document.getElementById("arcGrid");
+  arcs.forEach(function(a){g.appendChild(el('<div class="tarot"><span class="rom">'+a[0]+'</span><h4>'+a[1]+'</h4><div class="sp">'+a[2]+' · <span class="num">'+a[3]+' MP</span></div><div class="note" style="margin:4px 0">'+a[4]+'</div><div style="font-size:.9rem">'+a[5]+'</div></div>'));});
+  var r=[["Reloj brillante · Puente de la Torre del Reloj","Cosecha de Almas","Camino a Isaac (sin ella: trampa y final malo)"],["Espada en el altar · Capilla de Notre-Dame","Puño de Talos","Pelea contra Arturo y Excalibur"],["Cuadro de Notre-Dame · Galería de la Noche Eterna","Obra Maestra","Entrada a Notre-Dame"],["Ventana del Valor","Pira Infernal","Prueba del Valor"],["Ventana de la Templanza","Senda Helada","Prueba de la Templanza"],["Ventana de la Justicia","Cadenas de Justicia","Prueba de la Justicia"],["Ventana de la Prudencia","Paso Espejo","Prueba de la Prudencia"],["Tejados del Castillo","Absolución","Final verdadero"]];
+  var h='<tr><th>Lugar</th><th>Hechizo a equipar</th><th>Qué abre</th></tr>';r.forEach(function(x){h+='<tr><td>'+x[0]+'</td><td><b>'+x[1]+'</b></td><td>'+x[2]+'</td></tr>';});
+  document.getElementById("resTbl").innerHTML=h;
+})();
+
+/* ---------- Armas ---------- */
+var weap=[
+ ["Espada Larga","Espada de una mano","25","Inicial"],
+ ["Espada Bastarda","Espada de una mano","50","Alcantarillas del Distrito de Justicia (cofre)"],
+ ["Valmanway","Espada de una mano","~75","Saint Louis · Palacio de Justicia"],
+ ["Joyeuse","Espada de una mano","~100","Notre-Dame · Senda del Penitente (tras los rayos)"],
+ ["Harpe Oxidada y Égida","Espada y escudo","25","Cementerio · Osario de los Inocentes (en el suelo)"],
+ ["Fleuret y Escudo Torre","Espada y escudo","50","Por confirmar"],
+ ["Arondight y Escudo de Lancelot","Espada y escudo","~75","Notre-Dame · Entrada de la Torre (nivel más bajo)"],
+ ["Espada y Escudo de Alucard","Espada y escudo","~100","Salón Principal · Torre de Alucard"],
+ ["Lanza","Lanza","25","Cementerio · Fuente de los Inocentes"],
+ ["Alabarda","Lanza","~50","Torre del Reloj · Ascenso del Mecánico"],
+ ["Gungnir","Lanza","~75","Catacumbas · Senda Colapsada de Orfeo"],
+ ["Chauve-Souris","Lanza","100","Isaac · Corazón del Reloj (legendaria)"],
+ ["Cesto","Puños","25","París · Depósito de Alcantarillas (ancla oculta)"],
+ ["Nudillos Enjoyados","Puños","50","Salón Principal · Galería Vieja (muro falso)"],
+ ["Puños de Talos","Puños","~75","Torre del Reloj · Oficina del Constructor"],
+ ["Ira de Bernhard","Puños","~100","Por confirmar"],
+ ["Espada Quemada de Fierbois","Espada a dos manos","25","Arena de Juana · Techo de la Torre"],
+ ["Claymore","Espada a dos manos","~50","Torre del Reloj · El Camino del Puño"],
+ ["Durandal","Espada a dos manos","75","Por confirmar"],
+ ["Excalibur","Espada a dos manos","100","Arturo · Capilla de Notre-Dame (legendaria)"],
+ ["Par de Espadas Largas","Espadas dobles","25","Catacumbas · Encrucijada de los Muertos"],
+ ["Estoques","Espadas dobles","50","Salón Principal · Torre de Vigía (sala de retratos)"],
+ ["Almace y Hauteclaire","Espadas dobles","~75","Cementerio · Cripta Inundada (cofre dorado)"],
+ ["Guerra y Hambruna","Espadas dobles","~100","Notre-Dame · Sala del Gran Órgano"],
+ ["Látigo","Látigo","25","Catacumbas · Salón de los Ángeles Caídos"],
+ ["Látigo de Espinas","Látigo","50","Por confirmar"],
+ ["Lucero del Alba","Látigo","~75","Salón Principal · Patio Interior"],
+ ["Vampire Killer","Látigo","100","Trevor · Cuartel del Diácono, Notre-Dame (legendaria)"],
+];
+(function(){
+  var fams=["Todas","Látigo","Espada de una mano","Espada a dos manos","Espadas dobles","Espada y escudo","Lanza","Puños"],f=document.getElementById("weapFilter"),cur="Todas";
+  fams.forEach(function(z){var b=el('<button type="button"'+(z===cur?' class="on"':'')+'>'+z+'</button>');b.onclick=function(){cur=z;[].forEach.call(f.children,function(c){c.classList.toggle("on",c.textContent===z);});draw();};f.appendChild(b);});
+  function draw(){var h='<tr><th>Arma</th><th>Familia</th><th>ATK</th><th>Dónde / cómo</th></tr>';
+    weap.filter(function(w){return cur==="Todas"||w[1]===cur;}).forEach(function(w){h+='<tr><td><b>'+w[0]+'</b>'+(w[2]==="100"?' <span class="tag g">Legendaria</span>':'')+'</td><td>'+w[1]+'</td><td class="num">'+w[2]+'</td><td>'+w[3]+'</td></tr>';});
+    document.getElementById("weapTbl").innerHTML=h;}
+  draw();
+})();
+
+/* ---------- Reliquias ---------- */
+var rels=[
+ ["Gema Crepuscular","Daño","+30 % daño 3 s tras lanzar un hechizo","París · Drenaje Central","S"],
+ ["Sello Oscuro","Defensa","+80 % DEF con vida al 100 %","París · Mercado en Ruinas","A"],
+ ["Velo Sombrío","Defensa","+33 % DEF con vida < 33 %","París · Distrito Quemado","C"],
+ ["Llave de Cripta","Curación","Abrir un cofre restaura vida y maná","París · Tugurio del Vidente","B"],
+ ["Colmillo de Obsidiana","Daño","+45 % daño 3 s tras romper guardia","París · Nivel de Guardia","A"],
+ ["Ojo Abisal","Daño","+35 % daño a enemigos controlados","Cementerio · Entrada","A"],
+ ["Pluma de Cuervo","Daño","+25 % daño en el aire","Cementerio · Fosa Común","B"],
+ ["Espina Pálida","Defensa","−60 % daño de frente, +100 % por la espalda","Cementerio · Aguas Termales","B"],
+ ["Belladona","Maná","Poción recupera 40 % de maná","Cementerio · Tumbas Saqueadas","B"],
+ ["Colmillo de Vampiro","Exploración","Un murciélago mascota te sigue","Cementerio · Osario de los Inocentes","—"],
+ ["Susurro Espectral","Daño","+30 % daño con vida < 20 %","Catacumbas · Entrada","C"],
+ ["Cuenta de Luto","Movimiento","+35 % velocidad 7 s al matar","Catacumbas · Senda del Abismo","—"],
+ ["Amuleto Necro","Daño","+25 % daño 3 s tras matar","Catacumbas · Fauces del Limbo","B"],
+ ["Garra de Ébano","Daño","Aturdir por guardia rota dura 50 % más","Catacumbas · Garganta del Infierno","B"],
+ ["Anillo Abandonado","Daño","+25 % daño con vida al 100 %","Catacumbas · Antecámara del Pecado","A"],
+ ["Colgante Fantasmal","Defensa","Trampas hacen −75 % de daño","Salón Principal · Taller Abandonado","—"],
+ ["Nudo de Bruja","Curación","Las pociones curan el 100 %","Salón Principal · Salón Oeste (reja con palanca)","S"],
+ ["Vial de Sangre","Curación","Vial temporal extra tras usar un espejo","Salón Principal · Archivos","A"],
+ ["Ficha Siniestra","Maná","Parar un ataque da 5 de maná","Salón Principal · Crematorio","B"],
+ ["Moneda Maldita","Daño","+30 % daño 3 s tras parar","Salón Principal · Bodega","A"],
+ ["Lamento de Banshee","Maná","1 de maná por cada punto de daño recibido","Salón Principal · Cuarto de Servicio","C"],
+ ["Corazón Ennegrecido","Curación","+2 de vida por golpe, pero sin pociones","Salón Principal · Escalera Abandonada","C"],
+ ["Marca del Liche","Maná","−40 % costo si encadenas hechizos en < 1.5 s","Biblioteca · estudio oculto de los Estantes de Retórica","A"],
+ ["Lágrima de Medianoche","Defensa","Menos daño a menor maná (hasta −50 %)","Biblioteca · Estantes de Retórica","B"],
+ ["Lágrima de Espectro","Curación","Cura 7 % al golpear a quien te golpeó","Biblioteca · Sala de Estudio","B"],
+ ["Fragmento de Retornado","Maná","+10 % maná al matar","Biblioteca · Gabinete de Curiosidades","C"],
+ ["Runa Siniestra","Daño","+40 % daño a enemigos con vida completa","Torre del Reloj · Pozo de Acceso Este","A"],
+ ["Baratija Vil","Daño","+25 % daño por la espalda","Torre del Reloj · Cruce de Dédalo","B"],
+ ["Hueso Hueco","Movimiento","+35 % velocidad 5 s tras engancharte","Torre del Reloj · Cruce de Dédalo","—"],
+ ["Fragmento Lunar","Experiencia","+20 % XP con vida al 100 %","Torre del Reloj · Senda del Constructor","—"],
+ ["Anillo Fantasma","Experiencia","Enemigos reaparecen al salir del cuarto (farmeo)","Torre del Reloj · Ascenso Oeste","—"],
+ ["Brebaje de Bruja","Daño","+20 % daño por cada poción vacía","Notre-Dame · Transepto (muro agrietado)","B"],
+ ["Sello de Belcebú","Daño","+30 % daño pero −50 % vida máx.","Notre-Dame · Capilla de la Paciencia","B"],
+ ["Talismán Eldritch","Defensa","Invulnerable 15 s tras un espejo; doble invulnerabilidad al ser golpeado","Notre-Dame · Galería Este","A"],
+ ["Fragmento de Alma","Maná","+50 % maná al golpear con vida ≤ 30 %","Notre-Dame · Nave","C"],
+ ["Medallón Infernal","Maná","Maná máx. 80 %, pero hechizos cuestan 10 menos","Notre-Dame · Relicario","B"],
+ ["Reliquia Inquietante","Defensa","+60 % DEF 4 s tras recibir golpe","Salón de los Espejos · Escalones del Engaño","A"],
+ ["Amuleto del Ocaso","Movimiento","+35 % velocidad con maná ≤ 15 %","Salón de los Espejos","—"],
+ ["Amuleto de Arena","Movimiento","+35 % velocidad 30 s tras espejo o Barquero","Salón de los Espejos · Refectorio","—"],
+ ["Sangre Cristalizada","Exploración","Más consumibles al matar","Torre Sin Salida · ático","—"],
+ ["Piedra Lúgubre","Exploración","Avisa cuando hay un secreto cerca","Aposentos del Amo · Santuario de la Soledad","—"],
+ ["Gracia Familiar","Defensa","Bloquea un golpe y congela enemigos (60 s)","Edición Midnight (bonus)","S"],
+];
+(function(){
+  var cats=["Todas","Daño","Defensa","Curación","Maná","Movimiento","Experiencia","Exploración"],f=document.getElementById("relFilter"),cur="Todas";
+  cats.forEach(function(z){var b=el('<button type="button"'+(z===cur?' class="on"':'')+'>'+z+'</button>');b.onclick=function(){cur=z;[].forEach.call(f.children,function(c){c.classList.toggle("on",c.textContent===z);});draw();};f.appendChild(b);});
+  function draw(){var h='<tr><th>Reliquia</th><th>Tipo</th><th>Efecto</th><th>Ubicación</th><th>Tier</th></tr>';
+    rels.filter(function(r){return cur==="Todas"||r[1]===cur;}).forEach(function(r){var t=r[4]==="S"?'<span class="tag r">S</span>':r[4]==="A"?'<span class="tag g">A</span>':r[4]==="—"?'—':'<span class="tag">'+r[4]+'</span>';h+='<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td>'+t+'</td></tr>';});
+    document.getElementById("relTbl").innerHTML=h;}
+  draw();
+})();
+
+/* ---------- Secretos ---------- */
+var sec=[
+ ["Calles de París","24","8","5","5 · 3","3 · 3","3 · 3","28"],
+ ["Cementerio de los Inocentes","20","4","4","5 · 3","3 · 3","2 · 2","15"],
+ ["Catacumbas de París","43","15","2","5 · 3","3 · 3","0 · 0","20"],
+ ["Salón Principal","37","2","9","7 · 4","3 · 3","2 · 2","21"],
+ ["Notre-Dame","31","9","3","5 · 3 (+2 leg.)","3 · 3","4 · 3","19"],
+ ["Biblioteca","Por confirmar","—","—","4+ · —","3 · 3","—","9"],
+ ["Torre del Reloj","Por confirmar","—","—","6+ · 3+","3 · 3","—","14"],
+ ["Salón de los Espejos","Por confirmar","—","—","4+ · —","3 · 3","—","21"],
+ ["Aposentos del Amo","1+ (Santuario)","—","—","1 · —","—","—","—"],
+];
+(function(){
+  var h='<tr><th>Zona</th><th>Áreas secretas</th><th>Muros rompibles</th><th>Espejos</th><th>Reliquias · Armas</th><th>Corazón Valiente · Sabio</th><th>Libros ATK · DEF</th><th>Estatuas XP</th></tr>';
+  sec.forEach(function(s){h+='<tr><td><b>'+s[0]+'</b></td>'+s.slice(1).map(function(x,i){return'<td class="'+(i===0?'num':'')+'">'+x+'</td>';}).join("")+'</tr>';});
+  document.getElementById("secTbl").innerHTML=h;
+  var det=[
+   ["Calles de París (24)",["Muelles: 1 pasaje oculto","Mercado en Ruinas: muro agrietado de los barriles (palanca del pozo); DEF UP flotando sobre el puente roto","Depósito de Alcantarillas: Cesto + ATK UP (rompe la pasarela y baja)","Senda de la Rata: muro con carne","Torre Prisión: 3 (uno con elevador); ATK UP en el nicho de púas","Nivel de Guardia: 2 · Torre Superior: DEF UP tras muro","Escaleras al Techo: ATK UP en pasaje oculto","Hospital: 3 (Ojo Emocionante + pista del Susurrante)","Oficina del Obispo: 3 (pistas del Avaro)"]],
+   ["Cementerio (20)",["Entrada: 2 (uno con estatua XP)","Claustro: 2 · Fuente de los Inocentes: 3 (carne)","Fosa de los Pobres: 1 · Baños Romanos: 3","Fosa Común: Pluma de Cuervo","Aguas Termales: 4 · Guarida de las Serpientes: 1","Alcantarillas Antiguas: 1 · Tumbas Saqueadas: Ojo Tembloroso","Cripta Cubierta de Maleza: ATK UP tras paso bajo"]],
+   ["Catacumbas (43)",["Entrada: 4 (Susurro Espectral)","Encrucijada de los Muertos: 5","Galerías Osarias: 3 · Cámara de los Susurros: 2 (Corazón Sabio)","Galería de los Dientes: 4 · Necrópolis De Rais: 3","Garganta del Infierno: 2 (Garra de Ébano)","Fosos de Sangre: 9 (la zona más cargada)","Escalera al Infierno: 3 · Senda de Orfeo: 2"]],
+   ["Salón Principal (37) y Notre-Dame (31)",["Gran Salón: 7 pasajes ocultos","Pasillo de Entrada: 4 (Corazón Sabio)","Galería Vieja: 3 (Nudillos Enjoyados + ATK UP) · Bodega: 3","Armería: 3 (Corazón Valiente)","Notre-Dame — Tumba de los Caballeros: 6 (2 ATK UP)","Nave: 3 rejas con palanca · Gran Órgano: 3","Galería Este: suelo de Aplastar (Talismán Eldritch)","Scriptorium Sellado: suelo grueso, caída alta"]],
+  ];
+  var g=document.getElementById("secDetail");
+  det.forEach(function(d){g.appendChild(el('<div class="card"><h3 style="margin-top:0">'+d[0]+'</h3><ul>'+d[1].map(function(x){return"<li>"+x+"</li>";}).join("")+'</ul></div>'));});
+})();
+</script>
+</body>
+</html>
