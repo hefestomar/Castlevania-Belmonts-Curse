@@ -119,9 +119,19 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:.9rem}
 @media(min-width:720px){.kpis{grid-template-columns:repeat(4,1fr)}}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
 .kpi small{display:block;color:var(--muted)}
+
+/* ---- pixel art ---- */
+#batsCv{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:4;image-rendering:pixelated}
+.scene{padding:0;overflow:hidden;margin-bottom:14px}
+.scene canvas{display:block;width:100%;height:auto;aspect-ratio:192/72;image-rendering:pixelated;image-rendering:crisp-edges;cursor:pointer;background:#120609}
+.scene .cap{padding:10px 14px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;justify-content:space-between}
+.scene .cap b{font-family:Cinzel,Georgia,serif;color:var(--blood)}
+.scene .cap span{color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion: reduce){#batsCv{display:none}}
 </style>
 </head>
 <body>
+<canvas id="batsCv" aria-hidden="true"></canvas>
 <header class="hero">
   <div class="moon" aria-hidden="true"></div>
   <div class="wrap">
@@ -152,6 +162,10 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:.9rem}
 <section id="avance">
   <h2>Tu avance</h2>
   <p class="lead">Marca cada capítulo de la ruta al completarlo; el porcentaje se guarda en este navegador.</p>
+  <div class="card scene">
+    <canvas id="sceneCv" width="192" height="72" aria-label="Escena pixel art del capítulo en curso" title="Toca la escena para soltar murciélagos"></canvas>
+    <div class="cap"><b id="sceneLbl">Capítulo en curso</b><span id="sceneSub"></span></div>
+  </div>
   <div class="grid g2">
     <div class="card youare">
       <h3 style="margin-top:0">📍 Dónde vas: nivel 10 entrando al cementerio</h3>
@@ -477,7 +491,7 @@ function saveDone(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}
   });
   function upd(){
     var dn=loadDone(),max=0;dn.forEach(function(i){if(steps[i]&&steps[i].p>max)max=steps[i].p;});
-    document.getElementById("pctTotal").textContent=max;document.getElementById("barTotal").style.width=max+"%";
+    document.getElementById("pctTotal").textContent=max;document.getElementById("barTotal").style.width=max+"%";document.dispatchEvent(new Event("cbc:progress"));
   }
   box.addEventListener("change",function(e){
     if(!e.target.matches("input[data-i]"))return;
@@ -715,6 +729,126 @@ var sec=[
   var g=document.getElementById("secDetail");
   det.forEach(function(d){g.appendChild(el('<div class="card"><h3 style="margin-top:0">'+d[0]+'</h3><ul>'+d[1].map(function(x){return"<li>"+x+"</li>";}).join("")+'</ul></div>'));});
 })();
+
+/* ================= EFECTOS PIXEL ART ================= */
+(function(){
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var PAL={k:"#120a0e",w:"#e8e0d0",W:"#fffaf0",g:"#7d7a85",d:"#3e3a46",r:"#c3202b",R:"#ff4b4b",o:"#f08a24",y:"#f5d061",G:"#4fa35a",L:"#9be08e",b:"#6b4423",B:"#a0703c",p:"#6b3fa0",P:"#b07de0",c:"#7fd6e6",C:"#2f6f8a",s:"#9a94a0",S:"#c9c3cf",m:"#e8d6be",n:"#1d1420"};
+var SPR={
+ batA:["k.........k","kk..k.k..kk","kkk.kkk.kkk",".kkkRkRkkk.","...kkkkk...","....k.k...."],
+ batB:["....k.k....","...kkkkk...","..kkRkRkk..",".kkkkkkkkk.","kkk.....kkk","k.........k"],
+ skull:["..wwwwww..",".wwwwwwww.","wwwwwwwwww","wwkkwwkkww","wwkkwwkkww","wwwwkkwwww",".wwwwwwww.","..wkwkwkw.","..wwwwww.."],
+ rat:["..........",".gg.......","gkgg......","gggggggg..",".ggggggggg","..g..g...g"],
+ grave:["...ssss...","..ssssss..",".ssdssdss.",".ssddddss.",".ssdssdss.",".ssssssss.",".ssssssss.",".ssssssss.","GGGGGGGGGG"],
+ ghost:["...WWWW...","..WWWWWW..",".WWkWWkWW.",".WWWWWWWW.",".WWWkkWWW.",".WWWWWWWW.",".WWWWWWWW.",".W.WW.WW.W"],
+ snake:["...GGG....","..GGkGG...","..GGGGGr..","...GG.....","....GG....","...GG.....","..GG...GG.","..GGGGGGG."],
+ flame:["....y.....","...yy.....","...yoy....","..yoooy...","..oorroo..",".oorRRroo.",".orRRRRro.","..oRRRRo..","..bbbbbb.."],
+ scales:["....yy....","yyyyyyyyyy","y...yy...y","y...yy...y","yy..yy..yy","yyy.yy.yyy","....yy....","...yyyy...","..yyyyyy.."],
+ tower:["..s.s.s...","..sssss...","..skkks...","..sssss...","..skyks...","..sssss...","..sssss...",".sssssss..","sssssssss."],
+ book:["rrrrrrrr..","rWWWWWWr..","rWkkkkWr..","rWWWWWWr..","rWkkkWWr..","rWWWWWWr..","rrrrrrrr..",".yyyyyyy.."],
+ gear:["...ss.ss..","..sssssss.",".ssSSSSss.","sssSddSsss","..sSddSs..","sssSddSsss",".ssSSSSss.","..sssssss.","...ss.ss.."],
+ coin:["..yyyy....",".yyBByy...","yyByyByy..","yyByyyyy..","yyyBBByy..","yyyyyByy..","yyByyByy..",".yyBByy...","..yyyy...."],
+ mirror:["...yyyy...","..yccccy..",".yccWccy..",".ycWccc y.",".yccccc y.",".yccccc y.","..yccccy..","...yyyy...","....yy....","...yyyy..."],
+ bell:["....yy....","...yyyy...","..yyyyyy..","..yyyyyy..","..yyyyyy..",".yyyyyyyy.","yyyyyyyyyy","....bb....","....bb...."],
+ cross:["....yy....","....yy....","yyyyyyyyyy","yyyyyyyyyy","....yy....","....yy....","....yy....","....yy....","....yy...."],
+ dracula:["...kkkk...","..kmmmmk..","..kmkmkk..","..kmmmmk..","rkkkWWkkkr","rkkkrrkkkr","rrkkkkkkrr","rrkkkkkkrr",".rkkkkkkr.","..kk..kk.."],
+ sun:["....yy....",".y..yy..y.","..yyyyyy..",".yyWWWWyy.","yyyWWWWyyy","yyyWWWWyyy",".yyWWWWyy.","..yyyyyy..",".y..yy..y.","....yy...."],
+ rose:["...rr.....","..rRRr....","..rRRr.G..","...rr.GG..","....G.G...","....GG....","....G.....","....G....."]
+};
+function drawSpr(ctx,name,x,y,s,flip){var a=SPR[name];if(!a)return;s=s||1;
+ for(var r=0;r<a.length;r++){var row=a[r];for(var c=0;c<row.length;c++){var ch=row[c];if(ch==="."||ch===" ")continue;
+  ctx.fillStyle=PAL[ch]||"#f0f";var cx=flip?(row.length-1-c):c;ctx.fillRect(Math.round(x+cx*s),Math.round(y+r*s),s,s);}}}
+
+/* ---------- Temas por capítulo ---------- */
+var TH=[
+ {n:"Calles de París",sky:["#2a0a12","#8a2a1a"],ground:"city",spr:["rat","flame"],fx:"embers",moon:1,boss:"The Fallen"},
+ {n:"Cementerio de los Inocentes",sky:["#0d1a14","#2f4a3a"],ground:"graves",spr:["grave","ghost","snake"],fx:"mist",moon:1,boss:"Medusa"},
+ {n:"Torre Prisión",sky:["#1a0a0a","#6a2014"],ground:"tower",spr:["tower","flame"],fx:"embers",moon:1,boss:"Juana de Arco"},
+ {n:"Catacumbas de París",sky:["#0a0708","#2a1a14"],ground:"cave",spr:["skull","skull","flame"],fx:"dust",moon:0,boss:"La Muerte"},
+ {n:"Distrito de Justicia",sky:["#120a1a","#4a2a3a"],ground:"city",spr:["scales","tower"],fx:"embers",moon:1,boss:"Saint Louis · Isaac"},
+ {n:"Salón Principal",sky:["#0e0a18","#3a1a3a"],ground:"castle",spr:["flame","tower"],fx:"sparks",moon:1,boss:"Castillo de Drácula"},
+ {n:"Biblioteca",sky:["#0a0a1a","#28204a"],ground:"castle",spr:["book","book","rose"],fx:"stars",moon:1,boss:"Carmilla"},
+ {n:"Torre del Reloj",sky:["#0a0e14","#2a3a4a"],ground:"castle",spr:["gear","gear"],fx:"sparks",moon:1,boss:"Talos"},
+ {n:"Círculo de la Codicia",sky:["#140a04","#4a3008"],ground:"cave",spr:["coin","coin","skull"],fx:"gold",moon:0,boss:"Mammon"},
+ {n:"Salón de los Espejos",sky:["#0a0e18","#203a4a"],ground:"castle",spr:["mirror","mirror"],fx:"stars",moon:0,boss:"El Artista · Súcubo"},
+ {n:"Notre-Dame",sky:["#0e0818","#3a1a4a"],ground:"gothic",spr:["cross","bell"],fx:"glass",moon:1,boss:"La Muerte"},
+ {n:"Corazón del Reloj",sky:["#0a0e14","#3a2a1a"],ground:"castle",spr:["gear","gear","gear"],fx:"sparks",moon:1,boss:"Isaac"},
+ {n:"Aposentos del Amo",sky:["#1a0408","#7a0c14"],ground:"castle",spr:["dracula"],fx:"embers",moon:2,boss:"Drácula"},
+ {n:"Opcionales",sky:["#0e0818","#2a2a4a"],ground:"gothic",spr:["mirror","rose","bell"],fx:"glass",moon:1,boss:"Arturo · Súcubo · Leonor"},
+ {n:"Cuatro Virtudes",sky:["#0e0818","#4a2a5a"],ground:"gothic",spr:["bell","bell","rose"],fx:"glass",moon:2,boss:"Rose Sombra · Drácula"},
+ {n:"¡Maldición levantada!",sky:["#2a3a6a","#f0b070"],ground:"city",spr:["sun","rose"],fx:"gold",moon:0,boss:"Juego completado"}
+];
+
+function curIndex(){var d=[];try{d=JSON.parse(localStorage.getItem("cbc-steps")||"[]");}catch(e){}
+ for(var i=0;i<15;i++){if(d.indexOf(i)<0)return i;}return 15;}
+
+/* ---------- Escena del capítulo ---------- */
+var cv=document.getElementById("sceneCv");if(!cv)return;
+var ctx=cv.getContext("2d");ctx.imageSmoothingEnabled=false;var W=cv.width,H=cv.height,th=TH[0],idx=0,parts=[],t=0;
+function seed(n){var x=Math.sin(n*99.13)*43758.5;return x-Math.floor(x);}
+function makeParts(){parts=[];for(var i=0;i<24;i++)parts.push({x:Math.random()*W,y:Math.random()*H,v:.1+Math.random()*.3,p:Math.random()*6});}
+function ground(type){
+ ctx.fillStyle=PAL.n;var y=H-10;
+ if(type==="city"){for(var x=0;x<W;x+=8){var h=6+Math.floor(seed(x)*14);ctx.fillRect(x,y-h,8,h+10);if(seed(x+3)>.6){ctx.fillRect(x+2,y-h-4,4,4);}if(seed(x+7)>.7){ctx.fillStyle=PAL.o;ctx.fillRect(x+3,y-h+4,1,2);ctx.fillStyle=PAL.n;}}}
+ else if(type==="graves"){ctx.fillRect(0,y,W,10);for(var x=4;x<W;x+=14){var h=4+Math.floor(seed(x)*5);ctx.fillRect(x,y-h,5,h);ctx.fillRect(x+1,y-h-1,3,1);}
+  ctx.fillRect(W-22,y-26,3,26);ctx.fillRect(W-28,y-20,15,2);ctx.fillRect(W-30,y-14,4,2);}
+ else if(type==="tower"){ctx.fillRect(0,y,W,10);ctx.fillRect(W-40,8,22,H);for(var k=0;k<5;k++)ctx.fillRect(W-40+k*5,5,3,4);ctx.fillStyle=PAL.o;ctx.fillRect(W-31,20,3,5);ctx.fillRect(W-31,38,3,5);ctx.fillStyle=PAL.n;for(var x=0;x<W-44;x+=10){var h=4+Math.floor(seed(x)*8);ctx.fillRect(x,y-h,10,h);}}
+ else if(type==="cave"){for(var x=0;x<W;x+=4){var h=3+Math.floor(seed(x)*8);ctx.fillRect(x,0,4,h);var g=2+Math.floor(seed(x+50)*6);ctx.fillRect(x,y-g+6,4,g+10);}}
+ else if(type==="castle"){ctx.fillRect(0,y,W,10);var xs=[10,40,W-60,W-30];xs.forEach(function(x,i){var h=20+i*6%18;ctx.fillRect(x,y-h,12,h);ctx.beginPath();ctx.moveTo(x-1,y-h);ctx.lineTo(x+6,y-h-10);ctx.lineTo(x+13,y-h);ctx.fill();ctx.fillStyle=PAL.o;ctx.fillRect(x+5,y-h+6,2,3);ctx.fillStyle=PAL.n;});ctx.fillRect(22,y-12,W-60,12);}
+ else if(type==="gothic"){ctx.fillRect(0,y,W,10);ctx.fillRect(W/2-30,y-30,60,30);ctx.fillRect(W/2-34,y-38,14,38);ctx.fillRect(W/2+20,y-38,14,38);ctx.beginPath();ctx.moveTo(W/2-6,y-30);ctx.lineTo(W/2,y-46);ctx.lineTo(W/2+6,y-30);ctx.fill();
+  var cols=[PAL.r,PAL.c,PAL.y,PAL.P];for(var k=0;k<4;k++){ctx.fillStyle=cols[(k+Math.floor(t/40))%4];ctx.fillRect(W/2-12+k*6,y-22,4,8);}ctx.fillStyle=PAL.n;}
+}
+function sky(){var a=th.sky,steps=8;for(var i=0;i<steps;i++){ctx.fillStyle=mix(a[0],a[1],i/(steps-1));ctx.fillRect(0,Math.floor(i*H/steps),W,Math.ceil(H/steps)+1);}}
+function mix(c1,c2,f){var a=parseInt(c1.slice(1),16),b=parseInt(c2.slice(1),16);var r=((a>>16)&255)+(((b>>16)&255)-((a>>16)&255))*f,g=((a>>8)&255)+(((b>>8)&255)-((a>>8)&255))*f,bl=(a&255)+((b&255)-(a&255))*f;return"rgb("+(r|0)+","+(g|0)+","+(bl|0)+")";}
+function moon(){if(!th.moon)return;var x=W-22,y=12,r=7;ctx.fillStyle=th.moon===2?"#e04040":PAL.m;for(var dy=-r;dy<=r;dy++){var w=Math.floor(Math.sqrt(r*r-dy*dy));ctx.fillRect(x-w,y+dy,w*2,1);}}
+function fx(){parts.forEach(function(p){var c,x=p.x,y=p.y;
+ if(th.fx==="embers"){p.y-=p.v;p.x+=Math.sin(t/20+p.p)*.2;c=(t+p.p*10)%20<10?PAL.o:PAL.y;}
+ else if(th.fx==="mist"){p.x+=p.v*.6;y=H-14+Math.sin(t/30+p.p)*3;c="rgba(200,230,210,.25)";ctx.fillStyle=c;ctx.fillRect(x|0,y|0,6,1);if(p.x>W)p.x=-6;return;}
+ else if(th.fx==="dust"){p.y+=p.v*.4;c="rgba(220,200,170,.5)";}
+ else if(th.fx==="gold"){p.y-=p.v*.5;c=(t+p.p*10)%16<8?PAL.y:PAL.W;}
+ else if(th.fx==="stars"||th.fx==="glass"){c=(Math.sin(t/15+p.p)>.6)?(th.fx==="glass"?[PAL.r,PAL.c,PAL.y,PAL.P][(p.p*10|0)%4]:PAL.W):null;}
+ else {p.y-=p.v;c=PAL.c;}
+ if(p.y<0){p.y=H;p.x=Math.random()*W;}if(p.y>H){p.y=0;}
+ if(c){ctx.fillStyle=c;ctx.fillRect(p.x|0,p.y|0,1,1);}});}
+function sprites(){var n=th.spr.length,gap=W/(n+2);
+ th.spr.forEach(function(s,i){var bob=Math.round(Math.sin(t/12+i*1.7)*(s==="ghost"||s==="mirror"||s==="dracula"?2:1));
+  var x=s==="rat"?Math.round(W-((t*0.8)%(W+30))):Math.round(gap*(i+1)-10),y=H-34+bob;if(th.ground==="gothic"&&s!=="cross")x=Math.round(W-30-i*4);
+  if(s==="gear"){var tick=((t/6)|0)%2;drawSpr(ctx,s,x,y+(tick&&i%2?1:0),2,!!tick);return;}
+  if(s==="flame"&&t%8<4){drawSpr(ctx,s,x+1,y,2);return;}
+  if(s==="bell"){drawSpr(ctx,s,x+Math.round(Math.sin(t/8+i)*2),y,2);return;}
+  drawSpr(ctx,s,x,y,2,s==="rat");});}
+function frame(){ctx.clearRect(0,0,W,H);sky();moon();fx();ground(th.ground);sprites();t++;}
+function setTheme(){idx=curIndex();th=TH[idx];makeParts();
+ var lbl=document.getElementById("sceneLbl"),sub=document.getElementById("sceneSub");
+ if(lbl)lbl.textContent=idx<15?("Capítulo "+(idx+1)+" en curso · "+th.n):th.n;
+ if(sub)sub.textContent=idx<15?("Siguiente objetivo: "+th.boss):"Rose levantó la maldición de Drácula. ¡Felicidades, cazador!";
+ if(reduce)frame();}
+setTheme();document.addEventListener("cbc:progress",setTheme);
+var vis=true;document.addEventListener("visibilitychange",function(){vis=!document.hidden;});
+var last=0;function loop(ts){requestAnimationFrame(loop);if(!vis||ts-last<66)return;last=ts;frame();}
+if(!reduce)requestAnimationFrame(loop);else frame();
+
+/* ---------- Murciélagos pixel art en pantalla ---------- */
+if(reduce)return;
+var bc=document.getElementById("batsCv"),b=bc.getContext("2d"),bats=[];
+function rs(){bc.width=innerWidth;bc.height=innerHeight;b.imageSmoothingEnabled=false;}
+rs();addEventListener("resize",rs);
+var N=innerWidth<600?4:7;
+function newBat(i,first){var dir=Math.random()<.5?1:-1;return{x:first?Math.random()*innerWidth:(dir>0?-40:innerWidth+40),y:40+Math.random()*(innerHeight*.6),dir:dir,v:.6+Math.random()*1.1,amp:8+Math.random()*22,ph:Math.random()*6,s:innerWidth<600?2:3,f:Math.random()*10|0};}
+for(var i=0;i<N;i++)bats.push(newBat(i,true));
+var tb=0,lastB=0;
+function batLoop(ts){requestAnimationFrame(batLoop);if(!vis||ts-lastB<33)return;lastB=ts;tb++;
+ b.clearRect(0,0,bc.width,bc.height);
+ bats.forEach(function(o,i){o.x+=o.v*o.dir;var y=o.y+Math.sin(tb/18+o.ph)*o.amp;
+  var fr=((tb+o.f)>>2)%2?"batA":"batB";drawSpr(b,fr,o.x,y,o.s,o.dir<0);
+  if(o.x<-60||o.x>innerWidth+60){if(i>=N)o.dead=1;else bats[i]=newBat(i,false);}});
+ bats=bats.filter(function(o){return!o.dead;});}
+requestAnimationFrame(batLoop);
+
+/* clic en la escena: sueltan murciélagos extra */
+cv.addEventListener("click",function(){var r=cv.getBoundingClientRect();for(var k=0;k<5;k++){var o=newBat(0,false);o.x=r.left+r.width/2;o.y=r.top+r.height/2;o.dir=Math.random()<.5?1:-1;o.v=2+Math.random()*2;bats.push(o);}if(bats.length>24)bats.splice(N,bats.length-24);});
+})();
+
 </script>
 </body>
 </html>
